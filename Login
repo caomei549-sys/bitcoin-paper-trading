@@ -1,3 +1,0 @@
-<button onclick="window.location.href='dashboard.html'">
-เข้าสู่ระบบ
-</button>
