@@ -1,1 +1,187 @@
+/* ===== CryptoX Exchange v0.1 ===== */
 
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#0B0E11;
+    color:#fff;
+}
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    background:#11161d;
+    position:sticky;
+    top:0;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+}
+
+.logo span{
+    color:#F3BA2F;
+}
+
+nav{
+    display:flex;
+    gap:20px;
+    align-items:center;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#F3BA2F;
+}
+
+.login-btn{
+    background:#F3BA2F;
+    color:#000;
+    padding:10px 18px;
+    border-radius:8px;
+    font-weight:600;
+}
+
+.hero{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:80px 8%;
+    gap:40px;
+    flex-wrap:wrap;
+}
+
+.hero-left{
+    flex:1;
+    min-width:300px;
+}
+
+.hero-left h1{
+    font-size:58px;
+    line-height:1.2;
+}
+
+.hero-left h1 span{
+    display:block;
+    color:#F3BA2F;
+}
+
+.hero-left p{
+    margin-top:20px;
+    color:#bdbdbd;
+    font-size:18px;
+}
+
+.hero-buttons{
+    margin-top:35px;
+    display:flex;
+    gap:15px;
+}
+
+.btn-yellow{
+    background:#F3BA2F;
+    color:#000;
+    padding:14px 24px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:700;
+}
+
+.btn-dark{
+    border:1px solid #444;
+    color:white;
+    padding:14px 24px;
+    border-radius:10px;
+    text-decoration:none;
+}
+
+.hero-right{
+    flex:1;
+    min-width:280px;
+}
+
+.card{
+    background:#1E2329;
+    border-radius:15px;
+    padding:25px;
+}
+
+.card h3{
+    margin-bottom:20px;
+}
+
+.coin{
+    display:flex;
+    justify-content:space-between;
+    padding:14px 0;
+    border-bottom:1px solid #2d343c;
+}
+
+.features{
+    padding:80px 8%;
+}
+
+.features h2{
+    text-align:center;
+    margin-bottom:40px;
+    font-size:36px;
+}
+
+.feature-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.feature-card{
+    background:#1E2329;
+    border-radius:15px;
+    padding:25px;
+    transition:.3s;
+}
+
+.feature-card:hover{
+    transform:translateY(-6px);
+}
+
+.feature-card h3{
+    color:#F3BA2F;
+    margin-bottom:15px;
+}
+
+footer{
+    padding:30px;
+    text-align:center;
+    background:#11161d;
+    color:#888;
+}
+
+@media(max-width:768px){
+
+.hero{
+    flex-direction:column;
+}
+
+.hero-left h1{
+    font-size:40px;
+}
+
+nav{
+    gap:12px;
+    font-size:14px;
+}
+
+  }
