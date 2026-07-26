@@ -1,1 +1,166 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bitcoin Paper Trading Pro</title>
 
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#0f172a;
+    color:white;
+}
+
+header{
+    background:#111827;
+    padding:20px;
+    text-align:center;
+    font-size:30px;
+    font-weight:bold;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:20px;
+}
+
+.card{
+    background:#1e293b;
+    padding:20px;
+    border-radius:15px;
+    margin-bottom:20px;
+}
+
+input,select{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    margin-bottom:15px;
+    border:none;
+    border-radius:8px;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    background:#16a34a;
+    color:white;
+    border:none;
+    border-radius:10px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#15803d;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    padding:10px;
+    border-bottom:1px solid #334155;
+    text-align:center;
+}
+
+.profit{
+    color:#22c55e;
+}
+
+.loss{
+    color:#ef4444;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+Bitcoin Paper Trading
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<h2>สร้างออเดอร์</h2>
+
+<input id="coin" placeholder="BTC">
+
+<input id="buy" type="number" placeholder="ราคาซื้อ">
+
+<input id="sell" type="number" placeholder="ราคาปัจจุบัน">
+
+<input id="amount" type="number" placeholder="จำนวน BTC">
+
+<button onclick="addTrade()">คำนวณกำไร</button>
+
+</div>
+
+<div class="card">
+
+<h2>รายการเทรด</h2>
+
+<table>
+
+<thead>
+<tr>
+<th>เหรียญ</th>
+<th>ซื้อ</th>
+<th>ปัจจุบัน</th>
+<th>จำนวน</th>
+<th>P/L</th>
+</tr>
+</thead>
+
+<tbody id="table"></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<script>
+
+function addTrade(){
+
+let coin=document.getElementById("coin").value;
+
+let buy=parseFloat(document.getElementById("buy").value);
+
+let sell=parseFloat(document.getElementById("sell").value);
+
+let amount=parseFloat(document.getElementById("amount").value);
+
+if(!coin||isNaN(buy)||isNaN(sell)||isNaN(amount)){
+alert("กรอกข้อมูลให้ครบ");
+return;
+}
+
+let profit=(sell-buy)*amount;
+
+let cls=profit>=0?"profit":"loss";
+
+document.getElementById("table").innerHTML+=`
+<tr>
+<td>${coin}</td>
+<td>${buy}</td>
+<td>${sell}</td>
+<td>${amount}</td>
+<td class="${cls}">${profit.toFixed(2)} USD</td>
+</tr>
+`;
+
+}
+
+</script>
+
+</body>
+  </html>
