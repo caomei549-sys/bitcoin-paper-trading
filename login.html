@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login | Bitcoin Paper Trading</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#0b1426;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    color:white;
+}
+
+.box{
+    background:#1b263b;
+    padding:30px;
+    width:90%;
+    max-width:360px;
+    border-radius:15px;
+    box-shadow:0 0 20px rgba(0,0,0,.4);
+}
+
+h1{
+    text-align:center;
+    color:#f0b90b;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    margin:10px 0;
+    border:none;
+    border-radius:8px;
+    box-sizing:border-box;
+    font-size:16px;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    background:#f0b90b;
+    border:none;
+    border-radius:8px;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#ddb000;
+}
+
+p{
+    text-align:center;
+}
+
+a{
+    color:#f0b90b;
+    text-decoration:none;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h1>เข้าสู่ระบบ</h1>
+
+<input type="email" id="email" placeholder="อีเมล">
+
+<input type="password" id="password" placeholder="รหัสผ่าน">
+
+<button onclick="login()">เข้าสู่ระบบ</button>
+
+<p>
+ยังไม่มีบัญชี?
+<a href="register.html">สมัครสมาชิก</a>
+</p>
+
+</div>
+
+<script>
+
+function login(){
+
+let email=document.getElementById("email").value;
+let password=document.getElementById("password").value;
+
+if(email=="" || password==""){
+alert("กรุณากรอกข้อมูลให้ครบ");
+return;
+}
+
+window.location.href="dashboard.html";
+
+}
+
+</script>
+
+</body>
+  </html>
