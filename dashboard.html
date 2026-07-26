@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard | Bitcoin Paper Trading</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="nav">
+    <h2>Bitcoin Paper Trading</h2>
+    <button onclick="logout()">Logout</button>
+</div>
+
+<div class="container">
+
+<div class="card">
+
+<h1>Dashboard</h1>
+
+<div class="balance">
+ยอดเงินคงเหลือ
+<br>
+<strong id="balance">100,000 บาท</strong>
+</div>
+
+<div class="box">
+<h3>BTC/USDT</h3>
+<p id="price">ราคา : 3,800,000 บาท</p>
+
+<button onclick="buyBTC()">ซื้อ BTC</button>
+<button onclick="sellBTC()">ขาย BTC</button>
+</div>
+
+<div class="box">
+<h3>พอร์ตของคุณ</h3>
+
+<p>BTC ที่ถืออยู่</p>
+
+<h2 id="btc">0 BTC</h2>
+
+</div>
+
+<div class="box">
+
+<h3>ประวัติล่าสุด</h3>
+
+<ul id="history">
+
+<li>ยังไม่มีรายการ</li>
+
+</ul>
+
+</div>
+
+</div>
+
+                                     </div>
+                                     <script>
+let balance = 100000;
+let btc = 0;
+let price = 3800000;
+
+function updateUI() {
+    document.getElementById("balance").innerHTML =
+        balance.toLocaleString("th-TH") + " บาท";
+
+    document.getElementById("btc").innerHTML =
+        btc.toFixed(6) + " BTC";
+
+    document.getElementById("price").innerHTML =
+        "ราคา : " + price.toLocaleString("th-TH") + " บาท";
+}
+
+function buyBTC() {
+
+    let amount = 10000;
+
+    if(balance < amount){
+        alert("ยอดเงินไม่เพียงพอ");
+        return;
+    }
+
+    balance -= amount;
+    btc += amount / price;
+
+    document.getElementById("history").innerHTML +=
+    "<li>ซื้อ BTC " + amount.toLocaleString("th-TH") + " บาท</li>";
+
+    updateUI();
+
+}
+
+function sellBTC(){
+
+    if(btc <= 0){
+        alert("ไม่มี BTC สำหรับขาย");
+        return;
+    }
+
+    let value = btc * price;
+
+    balance += value;
+
+    document.getElementById("history").innerHTML +=
+    "<li>ขาย BTC " + value.toLocaleString("th-TH") + " บาท</li>";
+
+    btc = 0;
+
+    updateUI();
+
+}
+
+function logout(){
+
+    window.location.href="login.html";
+
+}
+
+updateUI();
+
+setInterval(function(){
+
+    let change = Math.floor(Math.random()*20000)-10000;
+
+    price += change;
+
+    if(price<1000000){
+        price=1000000;
+    }
+
+    updateUI();
+
+},3000);
+
+</script>
+
+</body>
+</html>
